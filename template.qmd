@@ -14,14 +14,95 @@ format:
 bibliography: references.bib
 csl: apa.csl
 ---
-
 ---
 nocite: |
    @ArelBundock2022
 ---
 
+## Introduction
+
 Lorem sociosqu enim nec magna a praesent ligula dictumst aliquet lacus. Enim malesuada egestas pellentesque convallis parturient fringilla ut dictum placerat curae. Etiam natoque semper mus.                                                                                                            Lorem pellentesque condimentum ultrices ligula ullamcorper hendrerit sem non felis ornare sapien cum suscipit? Primis duis urna bibendum aliquet fusce urna cras. Tristique scelerisque nullam praesent leo cursus praesent tempus. Potenti natoque aliquam volutpat varius enim eget litora nibh habitasse rhoncus! Cubilia in facilisis ligula mi euismod volutpat penatibus elementum porta dictum dis ultrices risus libero.
 
+```{r}
+#| echo: false
+#| eval: true
+#| include: false
+
+# Load packages
+library(tidyverse)
+library(strengejacke)
+library(modelsummary)
+library(flextable)
+
+df <- carData::Mroz
+```
+
+## Descriptive Statistics
+
+```{r}
+#| eval: true
+#| echo: false
+#| message: false
+#| warning: false
+
+tab <- df %>% 
+  select(lfp, wc, age, inc) %>% 
+  var_labels(lfp = "Labor force participation",
+             wc = "Wife's college att.", 
+             age = "Age",
+             inc = "Family income (exc. wife)") %>% 
+  descr()
+
+tab$mean <- round(tab$mean, digits=2)
+tab$sd <- round(tab$sd, digits=2)
+tab$NA.prc <- round(tab$NA.prc, digits=2)
+
+tab %>% 
+  select(label, NA.prc, mean,sd,  md, range) %>% 
+  rename(Varible = "label", MissPerc.="NA.prc", Mean = "mean", Std.Dev. = "sd",
+         Median = "md", Range = "range") %>% 
+  flextable() %>% 
+  autofit() %>% 
+  set_caption("Table 1. Descriptive Statistics") %>% 
+  font(fontname = "Times New Roman", part = "all")
+```
+
+\newpage
+
+# Model results
+
+```{r}
+#| eval: true
+#| echo: false
+#| message: false
+#| warning: false
+
+glmfit1 <- glm(lfp ~ wc, df, family=binomial(link="logit"))
+glmfit2 <- glm(lfp ~ wc + age, df, family=binomial(link="logit"))
+glmfit3 <- glm(lfp ~ wc + age + inc, df, family=binomial(link="logit"))
+  
+models <- list(glmfit1, glmfit2, glmfit3)
+
+cm <- c( 'lfp' = 'Labor force participation', 
+         'wcyes' = 'Wifes college att.',
+         'age' = "Age",
+         'inc' = 'Family income (exc. wife)',
+         '(Intercept)' = 'Constant')
+  
+reg_tab <- modelsummary(models, output = 'flextable',
+                coef_map = cm,
+                stars = c('*' = 0.05),
+                exponentiate = TRUE,
+                gof_omit = 'F|RMSE|Log.Lik') 
+
+
+reg_tab %>% 
+  autofit() %>%
+  padding(padding = 1, part = "all") %>% 
+  set_caption("Table 2. Logistic Regression Models") %>% 
+  font(fontname = "Times New Roman", part = "all") 
+
+```
 
 \newpage
 
