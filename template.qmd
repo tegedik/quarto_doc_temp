@@ -1,9 +1,31 @@
 ---
-title: "template"
-format: html
+title: |
+  Title
+author:
+  - name: John Doe
+abstract: |
+  Consectetur tempor penatibus aenean ultrices dapibus gravida parturient metus eleifend curae class. Sociis mi mattis sed mattis nulla netus bibendum himenaeos dui. Erat aliquam rutrum pharetra netus tempor laoreet lobortis eget congue erat sapien nibh eu? Leo suscipit cum euismod duis porta maecenas aptent potenti feugiat pulvinar. Sem primis non vulputate nibh?
+format:
+  docx:
+    toc: false
+    number-sections: false
+    highlight-style: github
+    reference-doc: custom-reference-doc.docx
+bibliography: references.bib
+csl: apa.csl
 ---
 
-## Quarto
+---
+nocite: |
+   @ArelBundock2022
+---
 
-"Lorem curabitur dui nisi commodo cursus odio diam odio posuere? Arcu eu magnis mi vulputate senectus pellentesque sociosqu potenti ornare dignissim. Cras nam tristique a eleifend penatibus dignissim lacinia nisl rutrum neque!"                                                                                                                                                                                     
-"Consectetur blandit tincidunt parturient suspendisse tincidunt ad nulla imperdiet sem. Ornare ligula iaculis orci consequat tempor hac taciti dui! Etiam mollis scelerisque sociis eu sociosqu netus dictumst justo magna? Phasellus netus sem volutpat lobortis purus nullam gravida dis phasellus euismod justo. Potenti conubia suspendisse sociis diam cubilia augue tempor ligula cubilia consequat dis accumsan."
+Lorem sociosqu enim nec magna a praesent ligula dictumst aliquet lacus. Enim malesuada egestas pellentesque convallis parturient fringilla ut dictum placerat curae. Etiam natoque semper mus.                                                                                                            Lorem pellentesque condimentum ultrices ligula ullamcorper hendrerit sem non felis ornare sapien cum suscipit? Primis duis urna bibendum aliquet fusce urna cras. Tristique scelerisque nullam praesent leo cursus praesent tempus. Potenti natoque aliquam volutpat varius enim eget litora nibh habitasse rhoncus! Cubilia in facilisis ligula mi euismod volutpat penatibus elementum porta dictum dis ultrices risus libero.
+
+
+\newpage
+
+## References
+
+::: {#refs}
+:::
