@@ -3,6 +3,8 @@ title: |
   Title
 author:
   - name: John Doe
+date: December 23, 2022
+date-format: long
 abstract: |
   Consectetur tempor penatibus aenean ultrices dapibus gravida parturient metus eleifend curae class. Sociis mi mattis sed mattis nulla netus bibendum himenaeos dui. Erat aliquam rutrum pharetra netus tempor laoreet lobortis eget congue erat sapien nibh eu? Leo suscipit cum euismod duis porta maecenas aptent potenti feugiat pulvinar. Sem primis non vulputate nibh?
 format:
@@ -14,6 +16,7 @@ format:
 bibliography: references.bib
 csl: apa.csl
 ---
+
 ---
 nocite: |
    @ArelBundock2022
@@ -21,7 +24,7 @@ nocite: |
 
 ## Introduction
 
-Lorem sociosqu enim nec magna a praesent ligula dictumst aliquet lacus. Enim malesuada egestas pellentesque convallis parturient fringilla ut dictum placerat curae. Etiam natoque semper mus.                                                                                                            Lorem pellentesque condimentum ultrices ligula ullamcorper hendrerit sem non felis ornare sapien cum suscipit? Primis duis urna bibendum aliquet fusce urna cras. Tristique scelerisque nullam praesent leo cursus praesent tempus. Potenti natoque aliquam volutpat varius enim eget litora nibh habitasse rhoncus! Cubilia in facilisis ligula mi euismod volutpat penatibus elementum porta dictum dis ultrices risus libero.
+Lorem sociosqu enim nec magna a praesent ligula dictumst aliquet lacus. Enim malesuada egestas pellentesque convallis parturient fringilla ut dictum placerat curae. Etiam natoque semper mus. Lorem pellentesque condimentum ultrices ligula ullamcorper hendrerit sem non felis ornare sapien cum suscipit? Primis duis urna bibendum aliquet fusce urna cras. Tristique scelerisque nullam praesent leo cursus praesent tempus. Potenti natoque aliquam volutpat varius enim eget litora nibh habitasse rhoncus! Cubilia in facilisis ligula mi euismod volutpat penatibus elementum porta dictum dis ultrices risus libero [@long1997].
 
 ```{r}
 #| echo: false
@@ -69,7 +72,7 @@ tab %>%
 
 \newpage
 
-# Model results
+# Model Results
 
 ```{r}
 #| eval: true
